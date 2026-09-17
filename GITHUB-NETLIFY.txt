@@ -1,0 +1,27 @@
+MADU LASH DESIGN - PACOTE GITHUB/NETLIFY
+
+IMPORTANTE: os arquivos deste pacote devem ficar NA RAIZ do repositorio GitHub.
+Nao coloque a pasta Madu_Lash_GitHub_Ready_v3_2 dentro do repositorio como uma subpasta.
+
+A raiz do repositorio deve conter, entre outros:
+- index.html
+- admin.html
+- app.js
+- admin.js
+- styles.css
+- admin.css
+- package.json
+- netlify.toml
+- assets/
+- netlify/functions/
+- netlify/lib/
+
+Variaveis obrigatorias no Netlify:
+MADU_ADMIN_USER = Madu
+MADU_ADMIN_PASSWORD = Madu321
+
+Teste apos o deploy:
+/api/schedule deve responder JSON.
+/admin deve abrir o painel.
+
+Nao e necessario banco de dados externo. A agenda usa Netlify Blobs.

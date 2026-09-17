@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090806" />
+  <meta name="color-scheme" content="dark" />
+  <title>Madu Lash Design | Cílios, Sobrancelhas e Agendamento</title>
+  <meta name="description" content="Conheça os procedimentos da Madu Lash Design, veja resultados reais e envie seu pedido de agendamento completo pelo WhatsApp." />
+  <meta name="keywords" content="Madu Lash Design, lash designer, extensão de cílios, volume brasileiro, volume egípcio, volume foxy, volume shine, design de sobrancelha, henna" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Madu Lash Design | Sua experiência começa aqui" />
+  <meta property="og:description" content="Cílios, sobrancelhas e agendamento prático pelo WhatsApp. Conheça os procedimentos e escolha o seu." />
+  <meta property="og:image" content="assets/images/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preload" as="image" href="assets/images/06-volume-brasileiro-640.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Madu Lash Design",
+    "telephone": "+55 11 98801-8010",
+    "description": "Serviços de extensão de cílios e design de sobrancelhas com agendamento pelo WhatsApp.",
+    "image": "assets/images/og-cover.jpg",
+    "priceRange": "R$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Avenida do Oratório, 4098, Sala 3",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+  <div class="page-glow glow-one" aria-hidden="true"></div>
+  <div class="page-glow glow-two" aria-hidden="true"></div>
+  <div id="butterflyLayer" class="butterfly-layer" aria-hidden="true"></div>
+
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-mark">
+      <span class="loader-butterfly">🦋</span>
+      <strong>MADU</strong>
+      <small>LASH DESIGN</small>
+    </div>
+  </div>
+
+  <div id="welcomeModal" class="welcome-modal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" hidden>
+    <div class="welcome-card">
+      <div class="welcome-brand" aria-hidden="true">🦋</div>
+      <p class="eyebrow">UMA EXPERIÊNCIA FEITA PARA VOCÊ</p>
+      <h1 id="welcomeTitle">Bem-vinda à <span>Madu Lash Design</span></h1>
+      <p>Antes de entrar, como podemos te chamar?</p>
+      <label class="field-label" for="welcomeName">Seu nome</label>
+      <input id="welcomeName" class="input" type="text" maxlength="40" autocomplete="name" placeholder="Digite seu primeiro nome" />
+      <p id="welcomeError" class="field-error" aria-live="polite"></p>
+      <div class="welcome-actions">
+        <button id="enterSound" class="btn btn-primary" type="button"><span>♫</span> Entrar com instrumental</button>
+        <button id="enterSilent" class="btn btn-secondary" type="button">Continuar sem som</button>
+      </div>
+      <small>O instrumental suave é opcional e pode ser pausado a qualquer momento.</small>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <a href="#inicio" class="brand" aria-label="Madu Lash Design - início">
+      <span class="brand-icon">M</span>
+      <span><strong>Madu</strong><small>Lash Design</small></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="admin.html" class="admin-nav-link">Admin</a>
+      <a class="nav-cta" href="#agendamento">Agendar horário</a>
+    </nav>
+
+    <button id="menuButton" class="menu-button" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav id="mobileNav" class="mobile-nav" aria-label="Navegação mobile" hidden>
+    <a href="#inicio">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#agenda">Agenda</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#localizacao">Localização</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="admin.html">Área administrativa</a>
+    <a class="btn btn-primary" href="#agendamento">Agendar horário</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="inicio">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">CÍLIOS • SOBRANCELHAS • BELEZA</p>
+        <div id="personalGreeting" class="personal-greeting">Olá, seja bem-vinda ♡</div>
+        <h2>Seu olhar, com uma experiência <span>delicada e marcante.</span></h2>
+        <p class="hero-text">Conheça os procedimentos da Madu Lash Design, veja resultados reais e monte seu pedido de agendamento em poucos passos.</p>
+        <div class="hero-actions">
+          <a href="#agendamento" class="btn btn-primary shine">Quero agendar <span>→</span></a>
+          <a href="#resultados" class="btn btn-secondary">Ver resultados</a>
+        </div>
+        <div class="hero-points" aria-label="Destaques">
+          <span><b>01</b> Escolha seu procedimento</span>
+          <span><b>02</b> Confira seu pedido</span>
+          <span><b>03</b> Confirme no WhatsApp</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-frame">
+          <img
+            src="assets/images/hero-entrada-640.webp"
+            srcset="assets/images/hero-entrada-640.webp 640w, assets/images/hero-entrada-1200.webp 1200w"
+            sizes="(max-width: 760px) 92vw, 46vw"
+            alt="Cliente com resultado real realizado pela Madu Lash Design"
+            width="640" height="835" fetchpriority="high" decoding="async" />
+          <div class="hero-photo-label"><small>RESULTADO REAL</small><strong>Madu Lash Design</strong></div>
+          <div class="floating-badge"><span>🦋</span> Madu Lash Design</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="silver-divider" aria-hidden="true"><span></span></div>
+
+    <section class="section services-section" id="servicos">
+      <div class="section-heading reveal">
+        <p class="eyebrow">ESCOLHA O SEU</p>
+        <h2>Procedimentos <span>em destaque</span></h2>
+        <p>Valores organizados para aplicação e manutenção. Toque em um serviço para levá-lo direto ao agendamento.</p>
+      </div>
+
+      <div class="category-heading reveal">
+        <div><span class="mini-icon">✦</span><div><small>EXTENSÃO DE CÍLIOS</small><h3>Volumes</h3></div></div>
+        <p>Aplicação e manutenção</p>
+      </div>
+
+      <div id="lashServices" class="service-grid"></div>
+
+      <div class="category-heading reveal category-space">
+        <div><span class="mini-icon">✧</span><div><small>SOBRANCELHAS</small><h3>Design & cuidados</h3></div></div>
+        <p>Serviços disponíveis</p>
+      </div>
+
+      <div id="browServices" class="service-grid service-grid-small"></div>
+
+      <div class="category-heading reveal category-space">
+        <div><span class="mini-icon">↺</span><div><small>COMPLEMENTARES</small><h3>Remoção</h3></div></div>
+        <p>Adicione ao seu agendamento</p>
+      </div>
+      <div id="extraServices" class="service-grid service-grid-small"></div>
+    </section>
+
+    <section class="section gallery-section" id="resultados">
+      <div class="section-heading reveal">
+        <p class="eyebrow">PORTFÓLIO</p>
+        <h2>Resultados <span>reais</span></h2>
+        <p>Fotos fornecidas pela profissional e apresentadas sem alteração do resultado dos procedimentos.</p>
+      </div>
+      <div class="gallery-toolbar reveal" role="group" aria-label="Filtrar galeria">
+        <button class="filter-chip active" data-filter="all" type="button">Todos</button>
+        <button class="filter-chip" data-filter="lashes" type="button">Cílios</button>
+        <button class="filter-chip" data-filter="brows" type="button">Sobrancelhas</button>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <section class="section availability-section" id="agenda">
+      <div class="section-heading reveal">
+        <p class="eyebrow">AGENDA</p>
+        <h2>Veja os dias com <span>horários disponíveis.</span></h2>
+        <p>Dias em branco têm horários publicados. Dias em vermelho estão sem vagas. Toque em um dia disponível para conferir os horários.</p>
+      </div>
+
+      <div class="calendar-layout reveal">
+        <div class="calendar-card">
+          <div class="calendar-toolbar">
+            <button id="calendarPrev" class="calendar-nav" type="button" aria-label="Mês anterior">‹</button>
+            <div><small>AGENDA DE HORÁRIOS</small><h3 id="calendarTitle">—</h3></div>
+            <button id="calendarNext" class="calendar-nav" type="button" aria-label="Próximo mês">›</button>
+          </div>
+          <div class="calendar-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+          <div id="calendarGrid" class="calendar-grid" aria-live="polite"></div>
+          <div class="calendar-legend">
+            <span><i class="legend-box available"></i> Disponível</span>
+            <span><i class="legend-box full"></i> Sem vagas</span>
+            <span><i class="legend-box neutral"></i> Não publicado</span>
+          </div>
+          <div id="calendarConnectionNote" class="connection-note" hidden></div>
+        </div>
+
+        <aside class="slot-card">
+          <p class="eyebrow">HORÁRIOS</p>
+          <h3 id="slotTitle">Escolha um dia</h3>
+          <p id="slotHelp">Os horários disponíveis aparecerão aqui.</p>
+          <div id="slotList" class="slot-list"></div>
+          <small>O horário escolhido entra no formulário. A confirmação final continua sendo feita pelo WhatsApp.</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section about-section" id="sobre">
+      <div class="about-card reveal">
+        <div class="about-mark">M</div>
+        <div>
+          <p class="eyebrow">Madu Lash Design</p>
+          <h2>Uma experiência pensada para valorizar <span>o seu olhar.</span></h2>
+          <p>Este espaço foi criado para você conhecer os procedimentos, comparar opções e chegar ao WhatsApp com todas as informações do seu agendamento já organizadas.</p>
+          <div class="trust-grid">
+            <article><span>♡</span><strong>Atendimento personalizado</strong><p>Informe se é sua primeira vez, alergias ou sensibilidades no próprio agendamento.</p></article>
+            <article><span>🦋</span><strong>Escolha simplificada</strong><p>Aplicação, manutenção, remoção e serviço desejado ficam reunidos em um único fluxo.</p></article>
+            <article><span>✨</span><strong>Confirmação direta</strong><p>O pedido completo é enviado ao WhatsApp da Madu para confirmar disponibilidade.</p></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="pending-info reveal" aria-label="Informações do estúdio a completar">
+        <div><small>LOCALIZAÇÃO</small><strong>Av. do Oratório, 4098 — Sala 3, Jardim Guairaca</strong></div>
+        <div><small>FORMAS DE PAGAMENTO</small><strong>Informação a adicionar</strong></div>
+        <div><small>POLÍTICA DE ATRASO</small><strong>Informação a adicionar</strong></div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="duvidas">
+      <div class="section-heading reveal">
+        <p class="eyebrow">DÚVIDAS</p>
+        <h2>Antes de <span>agendar</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal"><summary>É minha primeira vez fazendo extensão. Posso informar isso?</summary><p>Sim. O formulário pergunta se é sua primeira vez para que essa informação já chegue junto ao pedido de agendamento.</p></details>
+        <details class="faq-item reveal"><summary>Tenho alergia ou sensibilidade a algum produto. Onde aviso?</summary><p>Existe um campo específico para alergias e sensibilidades. Preencha antes de enviar o pedido ao WhatsApp.</p></details>
+        <details class="faq-item reveal"><summary>O horário escolhido já fica confirmado?</summary><p>Não. O site envia o horário desejado e uma alternativa opcional. A confirmação final é feita diretamente com a Madu pelo WhatsApp.</p></details>
+        <details class="faq-item reveal"><summary>Consigo escolher aplicação ou manutenção?</summary><p>Sim. Nos procedimentos de cílios, o valor é atualizado conforme aplicação ou manutenção.</p></details>
+        <details class="faq-item reveal"><summary>Preciso de remoção. Consigo incluir?</summary><p>Sim. O agendamento permite indicar remoção + nova aplicação ou remoção de trabalho realizado por outra profissional.</p></details>
+      </div>
+    </section>
+
+    <section class="booking-section" id="agendamento">
+      <div class="booking-shell">
+        <div class="booking-intro reveal">
+          <p class="eyebrow">AGENDAMENTO</p>
+          <h2>Seu horário começa <span>aqui.</span></h2>
+          <p>Preencha os passos abaixo. O valor é atualizado com cílios, remoção e sobrancelha antes de abrir o WhatsApp.</p>
+          <div class="booking-benefit"><span>✓</span><div><strong>Sem mensagem para digitar</strong><small>O site organiza as informações automaticamente.</small></div></div>
+          <div class="booking-benefit"><span>✓</span><div><strong>Você confere antes</strong><small>Procedimento, data, horário e valor aparecem no resumo.</small></div></div>
+        </div>
+
+        <form id="bookingForm" class="booking-form reveal" novalidate>
+          <div class="progress-wrap" aria-label="Progresso do agendamento">
+            <div class="progress-top"><span id="stepText">Passo 1 de 5</span><strong id="stepTitle">Procedimento</strong></div>
+            <div class="progress-track"><span id="progressBar"></span></div>
+          </div>
+
+          <div class="form-step active" data-step="1">
+            <div class="step-heading"><span>01</span><div><small>ESCOLHA</small><h3>Qual procedimento você deseja?</h3></div></div>
+            <label class="field-label" for="serviceSelect">Serviço</label>
+            <select id="serviceSelect" class="input" required>
+              <option value="">Selecione um procedimento</option>
+            </select>
+            <p class="field-error" data-error-for="serviceSelect"></p>
+
+            <div id="appointmentTypeWrap">
+              <label class="field-label">Aplicação ou manutenção?</label>
+              <div class="choice-grid" id="appointmentTypeGroup">
+                <label class="choice-card"><input type="radio" name="appointmentType" value="Aplicação" /><span><b>Aplicação</b><small>Primeira aplicação deste conjunto</small></span></label>
+                <label class="choice-card"><input type="radio" name="appointmentType" value="Manutenção" /><span><b>Manutenção</b><small>Manutenção do procedimento</small></span></label>
+              </div>
+              <p class="field-error" data-error-for="appointmentType"></p>
+            </div>
+
+            <div id="removalWrap">
+              <label class="field-label" for="removalSelect">Precisa de remoção?</label>
+              <select id="removalSelect" class="input">
+                <option value="none">Não preciso</option>
+                <option value="removal-application">Remoção + nova aplicação — + R$ 20</option>
+                <option value="other-professional">Remoção de outra profissional — + R$ 40</option>
+              </select>
+            </div>
+
+            <div id="browAddonWrap">
+              <label class="field-label" for="browAddonSelect">Quer fazer sobrancelha junto?</label>
+              <select id="browAddonSelect" class="input">
+                <option value="none">Não adicionar</option>
+                <option value="design">Design de sobrancelha — + R$ 20</option>
+                <option value="henna">Design com henna — + R$ 40</option>
+              </select>
+            </div>
+
+            <div id="livePrice" class="live-price"><small>VALOR TOTAL DA SELEÇÃO</small><strong>Selecione um serviço</strong></div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="step-heading"><span>02</span><div><small>AGENDA DISPONÍVEL</small><h3>Escolha um dia e horário publicados</h3></div></div>
+            <p class="step-helper">Aqui aparecem somente os dias que a Madu publicou. <strong>Branco</strong> tem vaga, <strong>vermelho</strong> está lotado e <strong>cinza</strong> ainda não teve a agenda aberta.</p>
+
+            <div class="booking-calendar-shell">
+              <div class="calendar-card booking-calendar-card">
+                <div class="calendar-toolbar">
+                  <button id="bookingCalendarPrev" class="calendar-nav" type="button" aria-label="Mês anterior">‹</button>
+                  <div><small>ESCOLHA A DATA</small><h3 id="bookingCalendarTitle">—</h3></div>
+                  <button id="bookingCalendarNext" class="calendar-nav" type="button" aria-label="Próximo mês">›</button>
+                </div>
+                <div class="calendar-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+                <div id="bookingCalendarGrid" class="calendar-grid" aria-live="polite"></div>
+                <div class="calendar-legend compact-legend">
+                  <span><i class="legend-box available"></i> Com vaga</span>
+                  <span><i class="legend-box full"></i> Lotado</span>
+                  <span><i class="legend-box neutral"></i> Não publicado</span>
+                </div>
+              </div>
+
+              <aside class="slot-card booking-slot-card">
+                <p class="eyebrow">HORÁRIOS DO DIA</p>
+                <h3 id="bookingSlotTitle">Escolha uma data</h3>
+                <p id="bookingSlotHelp">Depois toque em um dos horários disponíveis.</p>
+                <div id="bookingSlotList" class="slot-list"></div>
+                <div id="chosenSlot" class="chosen-slot" hidden>
+                  <small>HORÁRIO ESCOLHIDO</small>
+                  <strong id="chosenSlotText">—</strong>
+                  <button id="changeChosenSlot" type="button" class="text-button">Trocar horário</button>
+                </div>
+              </aside>
+            </div>
+            <p class="field-error" data-error-for="publishedSlot"></p>
+            <div class="info-note"><span>i</span><p>O horário é uma solicitação baseada na agenda publicada. A confirmação final continua sendo feita pela Madu no WhatsApp.</p></div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="step-heading"><span>03</span><div><small>SEUS DADOS</small><h3>Como podemos falar com você?</h3></div></div>
+            <label class="field-label" for="nameInput">Nome</label>
+            <input id="nameInput" class="input" type="text" maxlength="70" autocomplete="name" placeholder="Seu nome" required />
+            <p class="field-error" data-error-for="nameInput"></p>
+
+            <label class="field-label" for="phoneInput">Seu telefone <span>opcional</span></label>
+            <input id="phoneInput" class="input" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" />
+
+            <label class="field-label">É sua primeira vez fazendo esse procedimento?</label>
+            <div class="choice-grid compact" id="firstTimeGroup">
+              <label class="choice-card"><input type="radio" name="firstTime" value="Sim" /><span><b>Sim</b></span></label>
+              <label class="choice-card"><input type="radio" name="firstTime" value="Não" /><span><b>Não</b></span></label>
+            </div>
+            <p class="field-error" data-error-for="firstTime"></p>
+          </div>
+
+          <div class="form-step" data-step="4">
+            <div class="step-heading"><span>04</span><div><small>CUIDADOS</small><h3>Alguma informação importante?</h3></div></div>
+            <label class="field-label">Você possui alergia ou sensibilidade a cola/produtos?</label>
+            <div class="choice-grid compact" id="allergyGroup">
+              <label class="choice-card"><input type="radio" name="allergy" value="Não" /><span><b>Não</b></span></label>
+              <label class="choice-card"><input type="radio" name="allergy" value="Sim" /><span><b>Sim</b></span></label>
+              <label class="choice-card"><input type="radio" name="allergy" value="Não sei" /><span><b>Não sei</b></span></label>
+            </div>
+            <p class="field-error" data-error-for="allergy"></p>
+
+            <div id="allergyDetailsWrap" hidden>
+              <label class="field-label" for="allergyDetails">Conte qual alergia/sensibilidade</label>
+              <textarea id="allergyDetails" class="input textarea" rows="3" maxlength="350" placeholder="Ex.: já tive reação a determinada cola..."></textarea>
+            </div>
+
+            <label class="field-label" for="notesInput">Observação <span>opcional</span></label>
+            <textarea id="notesInput" class="input textarea" rows="4" maxlength="500" placeholder="Escreva aqui alguma observação que queira enviar para a Madu."></textarea>
+          </div>
+
+          <div class="form-step" data-step="5">
+            <div class="step-heading"><span>05</span><div><small>CONFIRA</small><h3>Seu agendamento</h3></div></div>
+            <div id="bookingSummary" class="booking-summary"></div>
+            <div class="confirm-note"><span>♡</span><p>Ao confirmar, o WhatsApp será aberto com sua mensagem pronta. Nada será enviado sem você tocar em enviar no WhatsApp.</p></div>
+          </div>
+
+          <div id="formGlobalError" class="form-global-error" aria-live="polite"></div>
+
+          <div class="form-actions">
+            <button id="prevStep" type="button" class="btn btn-secondary" hidden>← Voltar</button>
+            <button id="nextStep" type="button" class="btn btn-primary">Continuar →</button>
+            <button id="whatsappSubmit" type="submit" class="btn btn-primary whatsapp-confirm" hidden>Confirmar pelo WhatsApp <span>↗</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="final-cta section">
+      <div class="final-card reveal">
+        <div><p class="eyebrow">SEU MOMENTO</p><h2>Pronta para escolher <span>seu próximo olhar?</span></h2><p>Monte seu pedido de agendamento e envie tudo organizado em poucos toques.</p></div>
+        <a href="#agendamento" class="btn btn-primary shine">Agendar horário</a>
+      </div>
+    </section>
+
+    <section class="section location-section" id="localizacao">
+      <div class="section-heading reveal">
+        <p class="eyebrow">LOCALIZAÇÃO</p>
+        <h2>Chegue ao studio <span>sem complicação.</span></h2>
+        <p>Veja o endereço no mapa e abra a rota diretamente no Google Maps pelo celular, notebook ou PC.</p>
+      </div>
+      <div class="location-grid reveal">
+        <div class="map-frame">
+          <iframe
+            title="Mapa da Madu Lash Design"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Avenida%20do%20Orat%C3%B3rio%2C%204098%2C%20Sala%203%2C%20Jardim%20Guairaca%2C%20S%C3%A3o%20Paulo%20-%20SP&output=embed">
+          </iframe>
+        </div>
+        <div class="location-info">
+          <div class="location-pin" aria-hidden="true">⌖</div>
+          <p class="eyebrow">MADU LASH DESIGN</p>
+          <h3>Av. do Oratório, 4098</h3>
+          <p>Sala 3 • Jardim Guairaca<br>São Paulo - SP</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Avenida%20do%20Orat%C3%B3rio%2C%204098%2C%20Sala%203%2C%20Jardim%20Guairaca%2C%20S%C3%A3o%20Paulo%20-%20SP">Abrir rota no Google Maps ↗</a>
+          <small>O aplicativo do Maps será aberto quando disponível no dispositivo.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="footer-brand"><span class="brand-icon">M</span><div><strong>Madu Lash Design</strong><small>♡ delicadeza • 🦋 exclusividade • ✨ sofisticação</small></div></div>
+    <div class="footer-links"><a href="#servicos">Serviços</a><a href="#agenda">Agenda</a><a href="#localizacao">Localização</a><a href="#agendamento">Agendamento</a><a href="admin.html">Administração</a></div>
+    <p>WhatsApp: <a href="https://wa.me/5511988018010" target="_blank" rel="noopener">+55 11 98801-8010</a></p>
+    <small>© <span id="year"></span> Madu Lash Design.</small>
+  </footer>
+
+  <div class="floating-controls">
+    <button id="soundButton" class="float-button sound-button" type="button" aria-label="Ativar instrumental" title="Instrumental ambiente"><span id="soundIcon">♫</span></button>
+    <div class="whatsapp-widget">
+      <div id="whatsappMenu" class="whatsapp-menu" hidden>
+        <a href="#agendamento"><strong>Agendar horário</strong><small>Preencher formulário</small></a>
+        <a href="https://wa.me/5511988018010?text=Ol%C3%A1%20Madu!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida.%20%F0%9F%A9%B7" target="_blank" rel="noopener"><strong>Tirar uma dúvida</strong><small>Abrir conversa</small></a>
+      </div>
+      <button id="whatsappFloat" class="float-button whatsapp-float" type="button" aria-expanded="false" aria-controls="whatsappMenu" aria-label="Abrir opções do WhatsApp">W</button>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da galeria" hidden>
+    <button id="lightboxClose" class="lightbox-close" type="button" aria-label="Fechar">×</button>
+    <button id="lightboxPrev" class="lightbox-nav prev" type="button" aria-label="Foto anterior">‹</button>
+    <figure>
+      <img id="lightboxImage" src="" alt="" />
+      <figcaption><strong id="lightboxTitle"></strong><small id="lightboxMeta"></small></figcaption>
+    </figure>
+    <button id="lightboxNext" class="lightbox-nav next" type="button" aria-label="Próxima foto">›</button>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+MADU LASH DESIGN — AGENDA ONLINE / ADMINISTRAÇÃO
+================================================
+
+O que foi incluído
+------------------
+1. Agenda pública com três estados:
+   - BRANCO: há pelo menos um horário disponível.
+   - VERMELHO: dia lotado / sem vagas.
+   - CINZA: agenda ainda não publicada.
+
+2. O Passo 2 do formulário de agendamento agora É O PRÓPRIO CALENDÁRIO.
+   A cliente não consegue mais digitar qualquer data ou qualquer horário.
+   Ela só pode escolher um dia publicado e um horário marcado como disponível.
+
+3. Painel administrativo:
+   Endereço: /admin
+   Login inicial: Madu
+   Senha inicial: Madu321
+
+4. No painel, a Madu pode:
+   - navegar do mês atual até dezembro do ano seguinte;
+   - publicar um dia com horários;
+   - marcar horários como Disponível ou Ocupado;
+   - marcar o dia inteiro como Lotado;
+   - deixar/despublicar o dia como Não publicado (cinza);
+   - alterar a agenda quantas vezes quiser sem republicar o site.
+
+Como os dados são salvos online
+-------------------------------
+O projeto usa Netlify Functions + Netlify Blobs. Não usa Supabase e não exige
+uma assinatura separada para o calendário. A agenda é salva fora dos arquivos
+HTML, então uma mudança feita no painel aparece no site sem novo deploy.
+
+O projeto foi preparado para consumo muito pequeno (uma agenda de um studio),
+com um único objeto de calendário. O uso continua sujeito aos limites incluídos
+no plano da conta Netlify.
+
+Segurança
+---------
+Por padrão o backend aceita Madu / Madu321, conforme solicitado.
+O usuário e senha NÃO são enviados para o JavaScript público quando o site está
+no Netlify; a validação acontece na Function do servidor.
+
+Quando quiser trocar a senha sem editar o código, crie estas variáveis de
+ambiente no Netlify:
+  MADU_ADMIN_USER
+  MADU_ADMIN_PASSWORD
+
+Se elas não existirem, os valores iniciais permanecem Madu / Madu321.
+
+Teste no computador
+-------------------
+Se abrir com um servidor local (localhost), o site entra automaticamente em
+modo de demonstração e salva a agenda no localStorage do navegador. Isso serve
+para testar o painel e o calendário antes do deploy.
+
+Para testar o backend real localmente, use Netlify Dev após instalar as
+dependências:
+  npm install
+  npx netlify dev
+
+Arquivos principais
+-------------------
+index.html                    Site público
+admin.html                    Painel de administração
+app.js                        Site + calendário + formulário
+admin.js                      Administração da agenda
+styles.css                    Layout público / preto e dourado
+admin.css                     Layout do painel
+netlify/functions/*           API privada/pública da agenda
+netlify/lib/stores.mts        Persistência no Netlify Blobs
+netlify.toml                  Configuração de deploy e rota /admin
+package.json                  Dependência do Netlify Blobs
+
+
+TESTE LOCAL
+- Abra index.html normalmente.
+- O botão Admin agora abre admin.html também em modo local.
+- Em modo local, o painel serve apenas para testar a interface; os dados podem ficar restritos ao navegador/arquivo local.
+- Para a agenda funcionar de forma compartilhada entre celular, PC e clientes, publique o projeto no Netlify. Depois disso, as alterações do painel /admin ficam salvas online e não exigem novo deploy.

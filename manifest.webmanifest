@@ -1,0 +1,11 @@
+{
+  "name": "Madu Lash Design",
+  "short_name": "Madu Lash",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#09090c",
+  "theme_color": "#09090c",
+  "icons": [
+    {"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
+  ]
+}

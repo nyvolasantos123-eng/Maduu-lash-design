@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Madu Lash Design | Painel da Agenda</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <a href="index.html" class="brand"><span class="brand-icon">M</span><span><strong>Madu</strong><small>Lash Design</small></span></a>
+    <div class="admin-header-actions"><span class="admin-label">PAINEL DA PROFISSIONAL</span><button id="logoutButton" class="btn btn-secondary" type="button" hidden>Sair</button></div>
+  </header>
+
+  <main class="admin-main">
+    <section id="localModeWarning" class="admin-warning" hidden>
+      <strong>Modo de teste local.</strong>
+      <p>As alterações ficam salvas somente neste navegador. Quando publicado no Netlify, a agenda passa a ser salva online automaticamente.</p>
+    </section>
+
+    <section id="loginView" class="admin-login-card">
+      <p class="eyebrow">ACESSO RESTRITO</p>
+      <h1>Gerenciar <span>agenda</span></h1>
+      <p>Área exclusiva para a Madu atualizar dias e horários sem precisar republicar o site.</p>
+      <form id="loginForm">
+        <label class="field-label" for="adminUser">Login</label>
+        <input id="adminUser" class="input" type="text" autocomplete="username" required placeholder="Digite seu login" />
+        <label class="field-label" for="adminPassword">Senha</label>
+        <input id="adminPassword" class="input" type="password" autocomplete="current-password" required placeholder="Sua senha" />
+        <p id="loginError" class="field-error"></p>
+        <button class="btn btn-primary btn-block" type="submit">Entrar no painel</button>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="admin-dashboard" hidden>
+      <div class="admin-heading">
+        <div><p class="eyebrow">AGENDA ONLINE</p><h1>Atualize os <span>horários</span></h1><p>Branco = com vagas, vermelho = lotado e cinza = ainda não publicado. Ao salvar, o site público atualiza sem novo deploy.</p></div>
+        <button id="refreshButton" class="btn btn-secondary" type="button">Atualizar dados</button>
+      </div>
+
+      <div class="admin-grid">
+        <div class="calendar-card admin-calendar-card">
+          <div class="calendar-toolbar">
+            <button id="adminCalendarPrev" class="calendar-nav" type="button" aria-label="Mês anterior">‹</button>
+            <div><small>EDITAR AGENDA</small><h3 id="adminCalendarTitle">—</h3></div>
+            <button id="adminCalendarNext" class="calendar-nav" type="button" aria-label="Próximo mês">›</button>
+          </div>
+          <div class="calendar-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+          <div id="adminCalendarGrid" class="calendar-grid"></div>
+          <div class="calendar-legend"><span><i class="legend-box available"></i> Com vaga</span><span><i class="legend-box full"></i> Lotado</span><span><i class="legend-box neutral"></i> Não publicado</span></div>
+        </div>
+
+        <aside class="admin-editor">
+          <p class="eyebrow">DIA SELECIONADO</p>
+          <h2 id="editorDate">Escolha um dia</h2>
+          <p id="editorHint">Clique em uma data no calendário para editar.</p>
+
+          <div id="editorControls" hidden>
+            <div class="status-switch-row">
+              <div><strong>Status do dia</strong><small>Use “Não publicado” quando a agenda daquele dia ainda não foi aberta.</small></div>
+              <select id="dayStatus" class="input compact-input">
+                <option value="unpublished">Não publicado</option>
+                <option value="open">Com horários</option>
+                <option value="full">Dia lotado</option>
+              </select>
+            </div>
+
+            <div class="slot-add-row">
+              <div><label class="field-label" for="newSlotTime">Adicionar horário</label><input id="newSlotTime" class="input" type="time" /></div>
+              <button id="addSlotButton" class="btn btn-primary" type="button">Adicionar</button>
+            </div>
+
+            <div class="admin-slot-header"><strong>Horários cadastrados</strong><small>Toque no status para alternar disponível/ocupado.</small></div>
+            <div id="adminSlotList" class="admin-slot-list"></div>
+
+            <div class="admin-editor-actions">
+              <button id="deleteDayButton" class="btn danger-button" type="button">Despublicar este dia</button>
+              <button id="saveDayButton" class="btn btn-primary" type="button">Salvar alterações</button>
+            </div>
+            <p id="editorMessage" class="admin-message" aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
