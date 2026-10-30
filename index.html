@@ -84,6 +84,7 @@
     <nav class="desktop-nav" aria-label="Navegação principal">
       <a href="#inicio">Início</a>
       <a href="#servicos">Serviços</a>
+      <a href="#precos-dezembro" class="christmas-nav-link">❄ Preços de Dezembro</a>
       <a href="#resultados">Resultados</a>
       <a href="#agenda">Agenda</a>
       <a href="#sobre">Sobre</a>
@@ -101,6 +102,7 @@
   <nav id="mobileNav" class="mobile-nav" aria-label="Navegação mobile" hidden>
     <a href="#inicio">Início</a>
     <a href="#servicos">Serviços</a>
+    <a href="#precos-dezembro" class="christmas-nav-link">❄ Preços de Dezembro</a>
     <a href="#resultados">Resultados</a>
     <a href="#agenda">Agenda</a>
     <a href="#sobre">Sobre</a>
@@ -151,6 +153,12 @@
         <p>Valores organizados para aplicação e manutenção. Toque em um serviço para levá-lo direto ao agendamento.</p>
       </div>
 
+      <a class="december-teaser reveal" href="#precos-dezembro" aria-label="Ver novos preços de dezembro a partir de 15 de dezembro de 2026">
+        <span class="december-teaser-snow" aria-hidden="true">❄</span>
+        <span class="december-teaser-copy"><strong>Novidades para o Natal</strong><small>Novos valores para atendimentos a partir de 15 de dezembro</small></span>
+        <span class="december-teaser-action">Ver preços <span aria-hidden="true">→</span></span>
+      </a>
+
       <div class="category-heading reveal">
         <div><span class="mini-icon">✦</span><div><small>EXTENSÃO DE CÍLIOS</small><h3>Volumes</h3></div></div>
         <p>Aplicação e manutenção</p>
@@ -170,6 +178,30 @@
         <p>Adicione ao seu agendamento</p>
       </div>
       <div id="extraServices" class="service-grid service-grid-small"></div>
+    </section>
+
+    <section class="december-section" id="precos-dezembro" aria-labelledby="decemberTitle">
+      <div id="decemberSnow" class="december-snow" aria-hidden="true"></div>
+      <div class="december-inner">
+        <div class="december-label"><span aria-hidden="true">✦</span> ESPECIAL DE NATAL <span aria-hidden="true">✦</span></div>
+        <div class="december-header">
+          <div>
+            <p class="december-kicker">UMA NOVA TEMPORADA PARA BRILHAR</p>
+            <h2 id="decemberTitle">Preços de <span>Dezembro</span><span class="december-title-snow" aria-hidden="true">❄</span></h2>
+            <p class="december-description">Para deixar seu olhar ainda mais especial nas festas. Confira os novos valores de aplicação e manutenção da Madu Lash Design.</p>
+          </div>
+          <div class="december-date-badge"><span>VÁLIDOS A PARTIR DE</span><strong>15 DEZ</strong><small>2026</small></div>
+        </div>
+        <div class="december-notice" role="note">
+          <span class="december-notice-icon" aria-hidden="true">✧</span>
+          <p id="decemberPriceAlert">Até 14/12/2026, continuam valendo os preços habituais. A nova tabela passa a valer para atendimentos a partir de 15/12/2026.</p>
+        </div>
+        <div id="decemberPrices" class="december-prices" aria-label="Novos preços de dezembro para cílios"></div>
+        <div class="december-footer">
+          <p>Os valores acima se aplicam somente aos procedimentos listados. Outros serviços permanecem com seus preços habituais.</p>
+          <a href="#agendamento" class="december-cta">Escolher meu horário <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </section>
 
     <section class="section gallery-section" id="resultados">
@@ -308,6 +340,7 @@
             </div>
 
             <div id="livePrice" class="live-price"><small>VALOR TOTAL DA SELEÇÃO</small><strong>Selecione um serviço</strong></div>
+            <p id="priceValidityNote" class="price-validity-note" aria-live="polite">O preço final depende da data do atendimento.</p>
           </div>
 
           <div class="form-step" data-step="2">
@@ -435,7 +468,7 @@
 
   <footer class="footer" id="contato">
     <div class="footer-brand"><span class="brand-icon">M</span><div><strong>Madu Lash Design</strong><small>♡ delicadeza • 🦋 exclusividade • ✨ sofisticação</small></div></div>
-    <div class="footer-links"><a href="#servicos">Serviços</a><a href="#agenda">Agenda</a><a href="#localizacao">Localização</a><a href="#agendamento">Agendamento</a><a href="admin.html">Administração</a></div>
+    <div class="footer-links"><a href="#servicos">Serviços</a><a href="#precos-dezembro">Preços de Dezembro</a><a href="#agenda">Agenda</a><a href="#localizacao">Localização</a><a href="#agendamento">Agendamento</a><a href="admin.html">Administração</a></div>
     <p>WhatsApp: <a href="https://wa.me/5511988018010" target="_blank" rel="noopener">+55 11 98801-8010</a></p>
     <small>© <span id="year"></span> Madu Lash Design.</small>
   </footer>
