@@ -1,0 +1,126 @@
+/* Vitrine Instagram da Madu — somente o visual lateral do início. */
+.instagram-hero{
+  width:100%;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:19px;
+  position:relative;
+  isolation:isolate;
+  padding:20px 8px 10px;
+}
+.instagram-hero:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:min(110%,550px);
+  aspect-ratio:1;
+  top:14%;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(250,94,128,.25),rgba(209,33,70,.08) 53%,transparent 72%);
+  filter:blur(18px);
+  pointer-events:none;
+}
+.ig-phone{
+  display:block;
+  width:min(100%,360px);
+  flex:none;
+  padding:7px;
+  border-radius:47px;
+  background:linear-gradient(145deg,#303039,#0b0b0e 54%,#37353c);
+  box-shadow:0 30px 80px rgba(27,0,10,.48),0 2px 0 rgba(255,255,255,.15) inset;
+  transform:rotate(-2deg);
+  transition:transform .35s ease,box-shadow .35s ease;
+  color:#f8f8fa;
+  position:relative;
+  overflow:hidden;
+}
+.ig-phone:hover{transform:rotate(0deg) translateY(-5px);box-shadow:0 36px 85px rgba(27,0,10,.58)}
+.ig-phone:focus-visible{outline:3px solid #fff;outline-offset:5px}
+.ig-screen{
+  width:100%;
+  height:692px;
+  position:relative;
+  overflow:hidden;
+  background:#0d1014;
+  border-radius:40px;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:#f9f9fa;
+  font-size:11px;
+  line-height:1.3;
+}
+.ig-status{height:29px;padding:9px 23px 0 26px;display:flex;align-items:flex-start;justify-content:space-between;font-weight:800;font-size:11px}
+.ig-status-icons{font-size:8px;letter-spacing:-.045em;white-space:nowrap}
+.ig-island{position:absolute;left:50%;top:7px;transform:translateX(-50%);background:#030405;border-radius:99px;width:86px;height:20px;box-shadow:0 0 0 2px rgba(255,255,255,.015)}
+.ig-topbar{height:43px;padding:6px 17px 8px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ig-topbar strong{font-size:13px;white-space:nowrap;letter-spacing:-.02em;overflow:hidden;text-overflow:ellipsis}
+.ig-top-actions{font-size:19px;white-space:nowrap;line-height:1}
+.ig-profile{padding:3px 14px 0}
+.ig-profile-head{display:grid;grid-template-columns:85px repeat(3,minmax(0,1fr));gap:4px;align-items:center}
+.ig-avatar-ring{width:78px;height:78px;padding:3px;border-radius:50%;display:block;background:linear-gradient(135deg,#fa4d8a,#f8bc66,#d13778)}
+.ig-avatar-ring img{width:100%;height:100%;border:3px solid #0d1014;border-radius:50%;object-fit:cover;object-position:50% 12%;display:block}
+.ig-stat{display:grid;justify-items:center;min-width:0;gap:2px}
+.ig-stat strong{font-size:14px;font-weight:800}
+.ig-stat small{font-size:9px;color:#f0f0f1;white-space:nowrap}
+.ig-bio{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin:11px 1px 10px;font-size:10.8px}
+.ig-bio strong{font-size:11px;margin-bottom:2px}
+.ig-bio small{color:#a7a9b1;font-size:9.8px;margin-bottom:3px}
+.ig-bio em{font-size:10px;font-style:normal;color:#88adff;font-weight:650;margin-top:3px;overflow-wrap:anywhere}
+.ig-profile-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ig-profile-actions span{display:grid;place-items:center;height:29px;border-radius:7px;background:#25282f;font-size:10px;font-weight:750}
+.ig-profile-actions span:first-child{background:#3477f5}
+.ig-highlights{display:flex;justify-content:space-between;gap:4px;margin:14px 12px 7px}
+.ig-highlights>div{display:grid;justify-items:center;gap:5px;min-width:0;flex:1}
+.ig-highlights>div>span{display:block;width:51px;height:51px;max-width:100%;border-radius:50%;padding:3px;border:1.5px solid #454951}
+.ig-highlights img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.ig-highlights small{font-size:8.2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ig-tabs{height:33px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;text-align:center;color:#979aa2;font-size:21px}
+.ig-tabs span{height:100%;display:grid;place-items:center}
+.ig-tabs .ig-active{color:#fff;border-bottom:1px solid #f2f2f2}
+.ig-post-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}
+.ig-post-grid img{width:100%;height:110px;object-fit:cover;display:block}
+.ig-bottom-nav{position:absolute;bottom:0;left:0;right:0;height:48px;display:flex;align-items:center;justify-content:space-around;background:#0d1014;box-shadow:0 -10px 22px rgba(13,16,20,.9);font-size:27px;line-height:1}
+.ig-nav-avatar{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#7a203b;border:2px solid #fff;color:#fff;font-size:12px;font-weight:900}
+.ig-visit{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:11px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.11);
+  color:#fff;
+  transition:background .2s ease,transform .2s ease;
+  text-align:left;
+}
+.ig-visit:hover{background:rgba(255,255,255,.19);transform:translateY(-2px)}
+.ig-visit-icon{width:35px;height:35px;display:grid;place-items:center;background:linear-gradient(135deg,#e53f75,#ba1c49);border-radius:12px;color:#fff;font-size:25px;line-height:1}
+.ig-visit>span:last-child{display:grid;gap:2px}
+.ig-visit strong{font-size:.82rem}
+.ig-visit small{font-size:.69rem;color:#ffe1e8}
+@media(max-width:1040px){
+  .ig-phone{width:min(100%,326px);transform:none}
+  .ig-phone:hover{transform:translateY(-3px)}
+  .instagram-hero{padding-block:10px}
+}
+@media(max-width:760px){
+  .instagram-hero{padding:4px 8px 0;gap:17px}
+  .ig-phone{width:min(86vw,350px)}
+  .ig-screen{height:692px}
+  .ig-visit{width:min(86vw,350px)}
+}
+@media(max-width:360px){
+  .ig-phone{width:min(88vw,308px);padding:6px;border-radius:40px}
+  .ig-screen{height:644px;border-radius:34px}
+  .ig-profile-head{grid-template-columns:73px repeat(3,minmax(0,1fr))}
+  .ig-avatar-ring{width:68px;height:68px}
+  .ig-stat strong{font-size:13px}.ig-stat small{font-size:8px}
+  .ig-highlights>div>span{width:43px;height:43px}
+  .ig-highlights small{font-size:7.5px}
+  .ig-post-grid img{height:98px}
+}
+@media(prefers-reduced-motion:reduce){.ig-phone,.ig-visit{transition:none}}
