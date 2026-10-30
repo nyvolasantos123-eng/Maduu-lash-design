@@ -1,5 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#ff75b7"/><stop offset="1" stop-color="#c9c9d2"/></linearGradient></defs>
-  <rect width="64" height="64" rx="18" fill="#09090c"/>
-  <path d="M17 44V19h6l9 14 9-14h6v25h-6V29l-9 14-9-14v15z" fill="url(#g)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none" role="img" aria-label="Monograma M da Madu">
+  <defs>
+    <linearGradient id="maduPink" x1="8" y1="15" x2="63" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffbad4"/>
+      <stop offset=".56" stop-color="#ff87b6"/>
+      <stop offset="1" stop-color="#fa5d9e"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 52c6-3 9-17 12-29 2-8 4-12 7-10 4 3 5 22 10 30 4-8 9-27 15-30 7-4 4 22 8 32 1 3 3 6 6 7" stroke="url(#maduPink)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13 58c15-6 33-7 47-4" stroke="#ffb3d2" stroke-width="2.4" stroke-linecap="round" opacity=".82"/>
 </svg>

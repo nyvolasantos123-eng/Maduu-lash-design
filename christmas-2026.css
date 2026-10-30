@@ -1,0 +1,169 @@
+/* Madu Lash Design — identidade Natal 2026.
+   Camada sazonal: remover este link no próximo redesign, sem alterar a agenda. */
+:root{
+  --bg:#560a1c;
+  --bg-soft:#6a1027;
+  --card:#711329;
+  --card-2:#851931;
+  --pink:#ca2040;
+  --pink-2:#fff0f2;
+  --pink-soft:rgba(255,236,240,.12);
+  --silver:#fff4f6;
+  --silver-soft:#fbc7d1;
+  --text:#fffafa;
+  --muted:#f4cad1;
+  --line:transparent;
+  --danger:#ffd0d8;
+  --success:#d8ffeb;
+  --gold:#cc2441;
+  --gold-bright:#fff6f7;
+  --shadow:0 22px 64px rgba(43,2,15,.28);
+}
+html{background:var(--bg)}
+body{background:radial-gradient(ellipse at 85% 9%,rgba(229,45,70,.22),transparent 34%),linear-gradient(165deg,#710d25 0%,#5c0b1f 43%,#440817 100%);color:var(--text)}
+::selection{background:#fff;color:#850d28}
+.page-glow{opacity:.2}
+.glow-one{background:#f23f58}
+.glow-two{background:#e52747;opacity:.1}
+.butterfly{color:#ffe8ee;filter:drop-shadow(0 0 7px rgba(255,240,243,.24))}
+.loader{background:#5d0b21}
+.loader-mark small,.brand small,.eyebrow{color:#fff1f3}
+.welcome-modal{background:rgba(42,2,14,.85)}
+.welcome-card{background:linear-gradient(150deg,#901c36,#560b21)}
+.welcome-card:before{background:#ed4569;opacity:.18}
+.welcome-card>small{color:#f3cad2}
+.site-header,.admin-header{background:rgba(92,10,30,.96);border:0;box-shadow:0 8px 26px rgba(43,3,17,.16)}
+.desktop-nav{color:#ffe8ed}
+.desktop-nav>a:not(.nav-cta):hover{color:#fff}
+.brand-icon{width:47px;height:47px;flex:none;background:none;border:0;border-radius:0;box-shadow:none;display:grid;place-items:center;color:#ff91bd}
+.brand-icon img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 7px rgba(255,121,171,.18))}
+.brand small{color:#ffd5df}
+.menu-button span{background:#fff}
+.mobile-nav{background:#691027;border:0;box-shadow:0 22px 50px rgba(39,2,13,.3)}
+.mobile-nav a:hover{background:rgba(255,255,255,.1);border-radius:10px}
+.nav-cta,.btn-primary,.whatsapp-float{
+  background:linear-gradient(130deg,#ed314d,#b71130);
+  color:#fff;
+  box-shadow:0 12px 30px rgba(49,1,14,.24);
+}
+.nav-cta:hover,.btn-primary:hover,.whatsapp-float:hover{background:linear-gradient(130deg,#ff405d,#ca1739);color:#fff;box-shadow:0 14px 33px rgba(46,2,14,.34)}
+.btn-secondary{background:rgba(255,255,255,.12);color:#fff;border:0}
+.btn-secondary:hover{background:rgba(255,255,255,.2)}
+.hero h2 span,.section-heading h2 span,.about-card h2 span,.booking-intro h2 span,.final-card h2 span,.welcome-card h1 span{color:#fff1f3}
+.personal-greeting{background:rgba(255,255,255,.1);border:0;color:#fff}
+.hero-points b{color:#fff}
+.hero-points span{color:#ffdee4}
+.hero-photo-label{background:rgba(85,7,27,.88)}
+.hero-photo-label small{color:#fff3f5}
+.floating-badge{background:#fff8fa;color:#850d2b}
+.service-card,.about-card,.booking-form,.final-card,.calendar-card,.slot-card,.location-info,.faq-item{
+  border:0;
+  background:linear-gradient(152deg,rgba(151,27,55,.94),rgba(87,10,32,.97));
+  box-shadow:0 15px 42px rgba(46,2,15,.13);
+}
+.service-card:hover{border:0;box-shadow:0 22px 52px rgba(45,1,14,.27)}
+.service-photo{background:#77172d}
+.service-photo:after{background:linear-gradient(transparent,rgba(71,5,23,.69))}
+.duration-tag{background:rgba(98,9,34,.82);color:#fff}
+.service-code,.pending-info small,.step-heading>span,.booking-benefit>span,.progress-top strong,.faq-item summary:after,.location-pin,.text-button,.chosen-slot strong{color:#fff2f5}
+.service-placeholder{background:radial-gradient(circle at 50% 36%,rgba(255,245,247,.11),transparent 48%),linear-gradient(160deg,#8d1b37,#5c0a21)}
+.price-box,.trust-grid article,.pending-info div,.info-note,.confirm-note{background:rgba(255,255,255,.09);border:0}
+.price-box strong,.pending-info strong{color:#fff}
+.mini-icon,.booking-benefit>span,.step-heading>span,.location-pin{background:rgba(255,245,247,.13)}
+.about-card:after{background:#ff5572;opacity:.16}
+.about-mark{background:none;border:0;border-radius:0;box-shadow:none;color:#ff91bd}
+.about-mark img{width:100%;height:100%;object-fit:contain}
+.faq-item summary{color:#fff}
+.faq-item p{color:#f7d2d9}
+.filter-chip{background:rgba(255,255,255,.1);color:#ffe5e9;border:0}
+.filter-chip.active,.filter-chip:hover{background:#fff6f8;color:#8d102b;border:0}
+.gallery-item{background:#681228}
+.gallery-overlay{background:linear-gradient(transparent 48%,rgba(54,3,19,.83))}
+.gallery-overlay small{color:#ffe6ec}
+.booking-section:before{background:linear-gradient(180deg,transparent,rgba(243,62,91,.12),transparent)}
+.field-label{color:#fff7f8}
+.input,.choice-card span,.calendar-nav{background:#5c0c22;color:#fff9fa;border:0;box-shadow:none}
+.input:focus{background:#71132c;box-shadow:0 0 0 2px rgba(255,244,246,.45)}
+.input::placeholder{color:#edb8c4}
+.choice-card input:checked+span{background:#b71b3a;border:0;box-shadow:none;color:#fff}
+.choice-card input:focus-visible+span{outline-color:#fff}
+.live-price,.chosen-slot,.summary-total{background:rgba(255,248,249,.13);border:0}
+.summary-total span{color:#ffe9ed}
+.summary-total strong,.live-price strong{color:#fff}
+.calendar-card,.slot-card{background:linear-gradient(155deg,#8b1a35,#630c24)}
+.calendar-nav{color:#fff;font-weight:700}
+.calendar-nav:not(:disabled):hover{background:#bd2545;border:0}
+.calendar-weekdays span{color:#ffd7df}
+.calendar-day{background:#5a0a1e;color:#f0b8c3;border:0}
+.calendar-day.available{background:#fff7f8;color:#731127;border:0;box-shadow:none}
+.calendar-day.available:hover{background:#ffe5eb;box-shadow:none}
+.calendar-day.full{background:#a9102e;color:#fff;border:0}
+.calendar-day.unpublished{background:#5b1427;color:#e6a7b6;border:0}
+.calendar-day.past{background:#4e1021;color:#c68896;border:0}
+.calendar-day.selected,.calendar-day.available.selected{background:#ed3152;color:#fff;outline:0;box-shadow:none}
+.legend-box.available{background:#fff7f8;border:0}
+.legend-box.full{background:#ac1735;border:0}
+.legend-box.neutral{background:#5b1427;border:0}
+.slot-pill,.slot-status-toggle.available{background:#fff8f9;color:#7e1028;border:0}
+.slot-pill:hover,.slot-pill.selected{background:#ed3152;color:#fff;border:0;transform:translateY(-1px)}
+.slot-state,.connection-note{border:0}
+.confirm-note>span,.info-note span{color:#fff}
+.location-pin{color:#fff}
+.map-frame{background:#630d26;border:0}
+.float-button,.whatsapp-menu{background:rgba(98,13,37,.96);color:#fff}
+.sound-button.on{color:#fff;box-shadow:none}
+.footer{color:#f4c6cf}
+.footer-brand strong{color:#fff}
+.footer>small{color:#e5acb9}
+.footer-links a:hover,.admin-nav-link:hover{color:#fff!important}
+.lightbox{background:rgba(46,2,17,.96)}
+.lightbox-close,.lightbox-nav{background:rgba(111,11,39,.88)}
+:focus-visible,.input:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* Especial de dezembro: vermelho + branco, sem champanhe/dourado. */
+.christmas-nav-link{color:#fff!important}
+.december-teaser{background:linear-gradient(120deg,#e3304d,#9d102e);color:#fff}
+.december-teaser-snow,.december-teaser-action,.december-label,.december-header h2>span:first-child,.december-notice-icon{color:#fff!important}
+.december-teaser-copy small,.december-description,.december-footer p,.december-notice p{color:#ffe9ec}
+.december-section{background:radial-gradient(ellipse at 0 5%,#ed3b55,transparent 60%),linear-gradient(145deg,#c21636,#8b102d 70%,#5d0920)}
+.december-portrait:after{background:linear-gradient(90deg,#af1635 0%,rgba(175,22,53,.15) 43%,transparent 72%),linear-gradient(0deg,#790d2a 0%,transparent 50%)}
+.december-date-badge{background:#fff7f8;color:#8d102e}
+.december-notice{background:#740b27}
+.december-price-card{background:#fff8f9;color:#641027}
+.december-card-top{color:#bc1738}
+.december-card-prices small{color:#954659}
+.december-book{background:#bd1738;color:#fff}
+.december-book:hover{background:#8f102a}
+.december-cta{background:#fff7f8;color:#89112d}
+.december-cta:hover{background:#ffe4ea}
+.december-flake{color:#fff}
+.price-validity-note{color:#ffe0e5}
+
+/* Painel da profissional utiliza a mesma identidade. */
+.admin-body{background:linear-gradient(150deg,#670e27,#470719);color:#fff}
+.admin-header{background:rgba(91,10,30,.96)}
+.admin-label{color:#fff2f5}
+.admin-warning{background:rgba(255,247,249,.11);border:0}
+.admin-warning strong,.login-hint strong{color:#fff}
+.admin-login-card,.admin-editor{background:linear-gradient(155deg,#8c1a36,#590c23);border:0}
+.admin-login-card h1 span,.admin-heading h1 span{color:#fff2f5}
+.admin-slot-row,.empty-admin-slots{background:#650d26;border:0}
+.slot-status-toggle.available{background:#fff7f8;color:#771127}
+.slot-status-toggle.occupied{background:#ad1938;color:#fff;border:0}
+.slot-remove{background:#881b35;color:#fff;border:0}
+.slot-remove:hover{background:#b32442}
+.danger-button{background:#4e071d;color:#fff;border:0}
+.danger-button:hover{background:#710d28}
+.admin-message.success{color:#d8ffe9}
+.admin-message.error{color:#ffe0e6}
+
+@media(max-width:760px){
+  .brand-icon{width:42px;height:42px}
+  .hero{min-width:0}
+  .service-card,.about-card,.booking-form,.calendar-card,.slot-card,.location-info{box-shadow:0 12px 30px rgba(36,0,10,.12)}
+}
+@media(max-width:640px){
+  .december-section{background:linear-gradient(150deg,#d52040,#97132e 62%,#640d25)}
+  .december-portrait:after{background:linear-gradient(0deg,#b41735 0%,rgba(180,22,53,.82) 15%,transparent 47%),linear-gradient(180deg,rgba(76,0,17,.35),transparent 30%)}
+  .nav-cta,.btn,.december-book,.december-cta{min-height:48px}
+}
