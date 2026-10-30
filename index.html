@@ -22,7 +22,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preload" as="image" href="assets/images/06-volume-brasileiro-640.webp" fetchpriority="high" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261030" />
 
   <script type="application/ld+json">
   {
@@ -144,7 +144,6 @@
       </div>
     </section>
 
-    <div class="silver-divider" aria-hidden="true"><span></span></div>
 
     <section class="section services-section" id="servicos">
       <div class="section-heading reveal">
@@ -153,9 +152,9 @@
         <p>Valores organizados para aplicação e manutenção. Toque em um serviço para levá-lo direto ao agendamento.</p>
       </div>
 
-      <a class="december-teaser reveal" href="#precos-dezembro" aria-label="Ver novos preços de dezembro a partir de 15 de dezembro de 2026">
+      <a class="december-teaser reveal" href="#precos-dezembro" aria-label="Ver novos preços de dezembro a partir de 15 de novembro de 2026">
         <span class="december-teaser-snow" aria-hidden="true">❄</span>
-        <span class="december-teaser-copy"><strong>Novidades para o Natal</strong><small>Novos valores para atendimentos a partir de 15 de dezembro</small></span>
+        <span class="december-teaser-copy"><strong>Novidades para o Natal</strong><small>Novos valores para atendimentos a partir de 15 de novembro</small></span>
         <span class="december-teaser-action">Ver preços <span aria-hidden="true">→</span></span>
       </a>
 
@@ -182,19 +181,23 @@
 
     <section class="december-section" id="precos-dezembro" aria-labelledby="decemberTitle">
       <div id="decemberSnow" class="december-snow" aria-hidden="true"></div>
+      <picture class="december-portrait">
+        <source srcset="assets/images/madu-natal-640.webp 640w, assets/images/madu-natal-1086.webp 1086w" sizes="(max-width: 640px) 100vw, 650px" type="image/webp" />
+        <img src="assets/images/madu-natal-1086.webp" alt="Madu com roupa e gorro natalinos" width="1086" height="1448" loading="lazy" decoding="async" />
+      </picture>
       <div class="december-inner">
         <div class="december-label"><span aria-hidden="true">✦</span> ESPECIAL DE NATAL <span aria-hidden="true">✦</span></div>
         <div class="december-header">
-          <div>
+          <div class="december-heading-copy">
             <p class="december-kicker">UMA NOVA TEMPORADA PARA BRILHAR</p>
             <h2 id="decemberTitle">Preços de <span>Dezembro</span><span class="december-title-snow" aria-hidden="true">❄</span></h2>
             <p class="december-description">Para deixar seu olhar ainda mais especial nas festas. Confira os novos valores de aplicação e manutenção da Madu Lash Design.</p>
           </div>
-          <div class="december-date-badge"><span>VÁLIDOS A PARTIR DE</span><strong>15 DEZ</strong><small>2026</small></div>
+          <div class="december-date-badge"><span>VÁLIDOS A PARTIR DE</span><strong>15 NOV</strong><small>2026</small></div>
         </div>
         <div class="december-notice" role="note">
           <span class="december-notice-icon" aria-hidden="true">✧</span>
-          <p id="decemberPriceAlert">Até 14/12/2026, continuam valendo os preços habituais. A nova tabela passa a valer para atendimentos a partir de 15/12/2026.</p>
+          <p id="decemberPriceAlert">Até 14/11/2026, continuam valendo os preços habituais. A nova tabela passa a valer para atendimentos a partir de 15/11/2026.</p>
         </div>
         <div id="decemberPrices" class="december-prices" aria-label="Novos preços de dezembro para cílios"></div>
         <div class="december-footer">
@@ -494,6 +497,6 @@
     <button id="lightboxNext" class="lightbox-nav next" type="button" aria-label="Próxima foto">›</button>
   </div>
 
-  <script src="app.js" defer></script>
+  <script src="app.js?v=20261030" defer></script>
 </body>
 </html>

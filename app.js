@@ -6,9 +6,9 @@
   const IS_LOCAL_PREVIEW = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
 
 
-  // Preços habituais permanecem ativos antes de 15/12/2026.
+  // Preços habituais permanecem ativos antes de 15/11/2026.
   // Para agendamentos a partir dessa data, a tabela de dezembro prevalece.
-  const DECEMBER_START = '2026-12-15';
+  const DECEMBER_START = '2026-11-15';
   const DECEMBER_PRICES = Object.freeze({
     'volume-brasileiro': { application:130, maintenance:110 },
     'volume-egipcio': { application:150, maintenance:120 },
@@ -27,7 +27,7 @@
   }
   function priceTableLabel(service, appointmentDate) {
     return service?.category === 'lashes' && DECEMBER_PRICES[service.id] && appointmentDate >= DECEMBER_START
-      ? 'Tabela de dezembro (a partir de 15/12/2026)'
+      ? 'Tabela de dezembro (a partir de 15/11/2026)'
       : 'Tabela habitual';
   }
 
@@ -105,8 +105,8 @@
     }).join('');
     const alert = $('#decemberPriceAlert');
     if (alert) alert.textContent = TODAY_KEY >= DECEMBER_START
-      ? 'A tabela de dezembro já está em vigor para atendimentos a partir de 15/12/2026.'
-      : 'Até 14/12/2026, continuam valendo os preços habituais. A nova tabela passa a valer para atendimentos a partir de 15/12/2026.';
+      ? 'A tabela de dezembro já está em vigor para atendimentos a partir de 15/11/2026.'
+      : 'Até 14/11/2026, continuam valendo os preços habituais. A nova tabela passa a valer para atendimentos a partir de 15/11/2026.';
   }
 
   function decemberSnowfall() {
@@ -335,7 +335,7 @@
     const appointmentDate=form.selectedDate||TODAY_KEY;
     if(note)note.textContent=form.selectedDate
       ? 'Valor calculado pela data escolhida: '+formatDate(form.selectedDate)+'. '+priceTableLabel(s,appointmentDate)+'.'
-      : 'Estimativa pela tabela de hoje. Se o atendimento for a partir de 15/12/2026, os novos valores de dezembro serão aplicados.';
+      : 'Estimativa pela tabela de hoje. Se o atendimento for a partir de 15/11/2026, os novos valores de dezembro serão aplicados.';
     let base=0;if(s.category==='lashes'){const type=checked('appointmentType');if(!type){box.textContent='Escolha aplicação ou manutenção';form.total=null;return;}base=effectiveLashPrice(s,type==='Aplicação'?'application':'maintenance',appointmentDate);}else base=s.price;
     form.total=base+removalPrice()+browAddonPrice(); const extras=[];if(removalPrice())extras.push('remoção');if(browAddonPrice())extras.push('sobrancelha');box.textContent=`${money(form.total)}${extras.length?` (com ${extras.join(' + ')})`:''}`;
   }
