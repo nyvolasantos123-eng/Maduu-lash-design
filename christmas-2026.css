@@ -169,5 +169,5 @@ body{background:radial-gradient(ellipse at 85% 9%,rgba(229,45,70,.22),transparen
 }
 
 /* Foto temática acima do fundo da seção, mas atrás do texto e preços. */
-.december-portrait{z-index:0}
-.december-inner{z-index:1}
+ .december-portrait{z-index:1}
+.december-inner{z-index:2}
