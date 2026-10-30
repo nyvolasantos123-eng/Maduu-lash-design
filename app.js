@@ -6,13 +6,13 @@
   const IS_LOCAL_PREVIEW = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
 
   const services = [
-    { id:'volume-brasileiro', category:'lashes', name:'Volume Brasileiro', application:120, maintenance:100, days:20, image:'06-volume-brasileiro', code:'VB' },
-    { id:'volume-egipcio', category:'lashes', name:'Volume Egípcio', application:140, maintenance:110, days:20, image:'08-volume-egipcio', code:'VE' },
+    { id:'volume-brasileiro', category:'lashes', name:'Volume Brasileiro', application:130, maintenance:110, days:20, image:'06-volume-brasileiro', code:'VB' },
+    { id:'volume-egipcio', category:'lashes', name:'Volume Egípcio', application:150, maintenance:120, days:20, image:'08-volume-egipcio', code:'VE' },
     { id:'volume-shine', category:'lashes', name:'Volume Shine', application:130, maintenance:100, days:20, image:'05-volume-shine', code:'VS' },
-    { id:'volume-foxy', category:'lashes', name:'Volume Foxy', application:150, maintenance:110, days:20, image:'03-volume-foxy', code:'VF' },
-    { id:'mega-brasileiro', category:'lashes', name:'Volume Mega Brasileiro', application:150, maintenance:120, days:30, image:'07-mega-brasileiro', code:'MB' },
-    { id:'mega-foxy', category:'lashes', name:'Volume Mega Foxy', application:170, maintenance:120, days:30, image:'04-mega-foxy', code:'MF' },
-    { id:'mega-egipcio', category:'lashes', name:'Volume Mega Egípcio', application:180, maintenance:130, days:30, image:'02-mega-egipcio', code:'ME' },
+    { id:'volume-foxy', category:'lashes', name:'Volume Foxy', application:150, maintenance:120, days:20, image:'03-volume-foxy', code:'VF' },
+    { id:'mega-brasileiro', category:'lashes', name:'Volume Mega Brasileiro', application:160, maintenance:125, days:30, image:'07-mega-brasileiro', code:'MB' },
+    { id:'mega-foxy', category:'lashes', name:'Volume Mega Foxy', application:180, maintenance:135, days:30, image:'04-mega-foxy', code:'MF' },
+    { id:'mega-egipcio', category:'lashes', name:'Volume Mega Egípcio', application:190, maintenance:140, days:30, image:'02-mega-egipcio', code:'ME' },
     { id:'design-sobrancelha', category:'brows', name:'Design de Sobrancelha', price:20, image:'09-design-sobrancelha', code:'DS', imageNote:'Imagem de referência: Design de sobrancelha sem henna' },
     { id:'design-henna', category:'brows', name:'Design com Henna', price:40, image:'01-design-henna', code:'DH' },
     { id:'remocao-aplicacao', category:'extras', name:'Remoção + Nova Aplicação', price:20, code:'RA', noPhoto:true, note:'Adicional para remoção quando houver nova aplicação.' },
