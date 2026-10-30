@@ -5,14 +5,40 @@
   const LOCAL_SCHEDULE_KEY = 'maduScheduleV2';
   const IS_LOCAL_PREVIEW = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
 
+
+  // Preços habituais permanecem ativos antes de 15/12/2026.
+  // Para agendamentos a partir dessa data, a tabela de dezembro prevalece.
+  const DECEMBER_START = '2026-12-15';
+  const DECEMBER_PRICES = Object.freeze({
+    'volume-brasileiro': { application:130, maintenance:110 },
+    'volume-egipcio': { application:150, maintenance:120 },
+    'volume-foxy': { application:150, maintenance:120 },
+    'mega-brasileiro': { application:160, maintenance:125 },
+    'mega-foxy': { application:180, maintenance:135 },
+    'mega-egipcio': { application:190, maintenance:140 }
+  });
+  const spDateParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
+    timeZone:'America/Sao_Paulo', year:'numeric', month:'2-digit', day:'2-digit'
+  }).formatToParts(new Date()).map(part => [part.type, part.value]));
+  const TODAY_KEY = [spDateParts.year, spDateParts.month, spDateParts.day].join('-');
+  function effectiveLashPrice(service, kind, appointmentDate) {
+    const christmas = DECEMBER_PRICES[service.id];
+    return christmas && appointmentDate >= DECEMBER_START ? christmas[kind] : service[kind];
+  }
+  function priceTableLabel(service, appointmentDate) {
+    return service?.category === 'lashes' && DECEMBER_PRICES[service.id] && appointmentDate >= DECEMBER_START
+      ? 'Tabela de dezembro (a partir de 15/12/2026)'
+      : 'Tabela habitual';
+  }
+
   const services = [
-    { id:'volume-brasileiro', category:'lashes', name:'Volume Brasileiro', application:130, maintenance:110, days:20, image:'06-volume-brasileiro', code:'VB' },
-    { id:'volume-egipcio', category:'lashes', name:'Volume Egípcio', application:150, maintenance:120, days:20, image:'08-volume-egipcio', code:'VE' },
+    { id:'volume-brasileiro', category:'lashes', name:'Volume Brasileiro', application:120, maintenance:100, days:20, image:'06-volume-brasileiro', code:'VB' },
+    { id:'volume-egipcio', category:'lashes', name:'Volume Egípcio', application:140, maintenance:110, days:20, image:'08-volume-egipcio', code:'VE' },
     { id:'volume-shine', category:'lashes', name:'Volume Shine', application:130, maintenance:100, days:20, image:'05-volume-shine', code:'VS' },
-    { id:'volume-foxy', category:'lashes', name:'Volume Foxy', application:150, maintenance:120, days:20, image:'03-volume-foxy', code:'VF' },
-    { id:'mega-brasileiro', category:'lashes', name:'Volume Mega Brasileiro', application:160, maintenance:125, days:30, image:'07-mega-brasileiro', code:'MB' },
-    { id:'mega-foxy', category:'lashes', name:'Volume Mega Foxy', application:180, maintenance:135, days:30, image:'04-mega-foxy', code:'MF' },
-    { id:'mega-egipcio', category:'lashes', name:'Volume Mega Egípcio', application:190, maintenance:140, days:30, image:'02-mega-egipcio', code:'ME' },
+    { id:'volume-foxy', category:'lashes', name:'Volume Foxy', application:150, maintenance:110, days:20, image:'03-volume-foxy', code:'VF' },
+    { id:'mega-brasileiro', category:'lashes', name:'Volume Mega Brasileiro', application:150, maintenance:120, days:30, image:'07-mega-brasileiro', code:'MB' },
+    { id:'mega-foxy', category:'lashes', name:'Volume Mega Foxy', application:170, maintenance:120, days:30, image:'04-mega-foxy', code:'MF' },
+    { id:'mega-egipcio', category:'lashes', name:'Volume Mega Egípcio', application:180, maintenance:130, days:30, image:'02-mega-egipcio', code:'ME' },
     { id:'design-sobrancelha', category:'brows', name:'Design de Sobrancelha', price:20, image:'09-design-sobrancelha', code:'DS', imageNote:'Imagem de referência: Design de sobrancelha sem henna' },
     { id:'design-henna', category:'brows', name:'Design com Henna', price:40, image:'01-design-henna', code:'DH' },
     { id:'remocao-aplicacao', category:'extras', name:'Remoção + Nova Aplicação', price:20, code:'RA', noPhoto:true, note:'Adicional para remoção quando houver nova aplicação.' },
@@ -51,7 +77,7 @@
         ? `<div class="service-placeholder"><span aria-hidden="true">✧</span></div>`
         : `<div class="service-photo"><img src="${imageSrc(s.image,640)}" srcset="${imageSrc(s.image,640)} 640w, ${imageSrc(s.image,1200)} 1200w" sizes="(max-width:480px) 92vw, (max-width:760px) 46vw, 31vw" alt="Resultado de ${escapeHTML(s.name)} realizado pela Madu Lash Design" loading="lazy" decoding="async" />${s.days ? `<span class="duration-tag">Referência: ${s.days} dias</span>` : ''}</div>`;
       const price = s.category === 'lashes'
-        ? `<div class="price-pair"><div class="price-box"><small>Aplicação</small><strong>${money(s.application)}</strong></div><div class="price-box"><small>Manutenção</small><strong>${money(s.maintenance)}</strong></div></div>`
+        ? `<div class="price-pair"><div class="price-box"><small>Aplicação</small><strong>${money(effectiveLashPrice(s, 'application', TODAY_KEY))}</strong></div><div class="price-box"><small>Manutenção</small><strong>${money(effectiveLashPrice(s, 'maintenance', TODAY_KEY))}</strong></div></div>`
         : `<div class="price-pair single-price"><div class="price-box"><small>Valor</small><strong>${money(s.price)}</strong></div></div>`;
       const note = s.note || s.imageNote || (s.days ? `Foto enviada para este procedimento. Referência informada de ${s.days} dias.` : 'Selecione este serviço para continuar o agendamento.');
       return `<article class="service-card reveal ${s.noPhoto ? 'text-service' : ''}" data-service-card="${s.id}">${photo}<div class="service-body"><div class="service-title-row"><h4>${escapeHTML(s.name)}</h4><span class="service-code">${s.code}</span></div>${price}<p class="service-note">${escapeHTML(note)}</p><button class="btn btn-secondary book-service" type="button" data-service="${s.id}">${s.category === 'extras' ? 'Adicionar ao agendamento' : 'Agendar este serviço'} <span>→</span></button></div></article>`;
@@ -59,6 +85,48 @@
     $('#lashServices').innerHTML = services.filter(s => s.category === 'lashes').map(makeCard).join('');
     $('#browServices').innerHTML = services.filter(s => s.category === 'brows').map(makeCard).join('');
     $('#extraServices').innerHTML = services.filter(s => s.category === 'extras').map(makeCard).join('');
+  }
+
+
+  function renderDecemberPrices() {
+    const grid = $('#decemberPrices');
+    grid.innerHTML = Object.keys(DECEMBER_PRICES).map(id => {
+      const service = services.find(item => item.id === id);
+      const prices = DECEMBER_PRICES[id];
+      return '<article class="december-price-card">' +
+        '<div class="december-card-top"><span class="december-card-icon" aria-hidden="true">✦</span><span class="december-card-code">' + service.code + '</span></div>' +
+        '<h3>' + escapeHTML(service.name.replace(/^Volume Mega/, 'Mega')) + '</h3>' +
+        '<div class="december-card-prices">' +
+          '<div><small>Aplicação</small><strong>' + money(prices.application) + '</strong></div>' +
+          '<div><small>Manutenção</small><strong>' + money(prices.maintenance) + '</strong></div>' +
+        '</div>' +
+        '<button class="december-book book-service" type="button" data-service="' + service.id + '">Quero agendar <span aria-hidden="true">→</span></button>' +
+      '</article>';
+    }).join('');
+    const alert = $('#decemberPriceAlert');
+    if (alert) alert.textContent = TODAY_KEY >= DECEMBER_START
+      ? 'A tabela de dezembro já está em vigor para atendimentos a partir de 15/12/2026.'
+      : 'Até 14/12/2026, continuam valendo os preços habituais. A nova tabela passa a valer para atendimentos a partir de 15/12/2026.';
+  }
+
+  function decemberSnowfall() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const layer = $('#decemberSnow');
+    if (!layer) return;
+    const fragment = document.createDocumentFragment();
+    const count = window.innerWidth < 700 ? 14 : 26;
+    for (let i = 0; i < count; i++) {
+      const flake = document.createElement('span');
+      flake.className = 'december-flake';
+      flake.textContent = i % 3 === 0 ? '✻' : '❄';
+      flake.style.setProperty('--left', (Math.random() * 100).toFixed(2) + '%');
+      flake.style.setProperty('--size', (9 + Math.random() * 13).toFixed(0) + 'px');
+      flake.style.setProperty('--fall', (9 + Math.random() * 9).toFixed(1) + 's');
+      flake.style.setProperty('--delay', (-Math.random() * 20).toFixed(1) + 's');
+      flake.style.setProperty('--drift', (Math.random() * 90 - 45).toFixed(0) + 'px');
+      fragment.appendChild(flake);
+    }
+    layer.appendChild(fragment);
   }
 
   function renderGallery() {
@@ -228,6 +296,7 @@
     else {help.textContent='A agenda deste dia ainda não foi publicada.';list.innerHTML='<div class="slot-state neutral-state">Escolha um dia branco.</div>';if(form.selectedDate===key){form.selectedDate='';form.selectedTime='';renderChosenSlot();}}
   }
   function renderChosenSlot(){
+    updatePrice();
     const wrap=$('#chosenSlot'); if(!wrap)return;
     if(form.selectedDate&&form.selectedTime){wrap.hidden=false;$('#chosenSlotText').textContent=`${new Intl.DateTimeFormat('pt-BR').format(parseDateKey(form.selectedDate))} às ${form.selectedTime}`;}
     else{wrap.hidden=true;$('#chosenSlotText').textContent='—';}
@@ -261,8 +330,13 @@
     updatePrice();
   }
   function updatePrice(){
-    const s=getService(),box=$('#livePrice strong'); if(!s){box.textContent='Selecione um serviço';form.total=null;return;}
-    let base=0;if(s.category==='lashes'){const type=checked('appointmentType');if(!type){box.textContent='Escolha aplicação ou manutenção';form.total=null;return;}base=type==='Aplicação'?s.application:s.maintenance;}else base=s.price;
+    const s=getService(),box=$('#livePrice strong'),note=$('#priceValidityNote');
+    if(!s){box.textContent='Selecione um serviço';form.total=null;if(note)note.textContent='Os preços dependem da data do atendimento.';return;}
+    const appointmentDate=form.selectedDate||TODAY_KEY;
+    if(note)note.textContent=form.selectedDate
+      ? 'Valor calculado pela data escolhida: '+formatDate(form.selectedDate)+'. '+priceTableLabel(s,appointmentDate)+'.'
+      : 'Estimativa pela tabela de hoje. Se o atendimento for a partir de 15/12/2026, os novos valores de dezembro serão aplicados.';
+    let base=0;if(s.category==='lashes'){const type=checked('appointmentType');if(!type){box.textContent='Escolha aplicação ou manutenção';form.total=null;return;}base=effectiveLashPrice(s,type==='Aplicação'?'application':'maintenance',appointmentDate);}else base=s.price;
     form.total=base+removalPrice()+browAddonPrice(); const extras=[];if(removalPrice())extras.push('remoção');if(browAddonPrice())extras.push('sobrancelha');box.textContent=`${money(form.total)}${extras.length?` (com ${extras.join(' + ')})`:''}`;
   }
   function clearErrors(){$$('.field-error').forEach(e=>e.textContent='');$('#formGlobalError').textContent='';}
@@ -276,8 +350,8 @@
     if(!ok)$('#formGlobalError').textContent='Confira os campos indicados antes de continuar.';return ok;
   }
   function formatDate(key){return key?new Intl.DateTimeFormat('pt-BR').format(parseDateKey(key)):'—';}
-  function summaryData(){const s=getService(),type=s?.category==='lashes'?checked('appointmentType'):'Não se aplica',allergy=checked('allergy');return {name:$('#nameInput').value.trim(),phone:$('#phoneInput').value.trim(),service:s?.name||'',type,date:formatDate(form.selectedDate),time:form.selectedTime,removal:removalLabel(),browAddon:s?.category==='lashes'?browAddonLabel():'Não se aplica',firstTime:checked('firstTime'),allergy,allergyDetails:$('#allergyDetails').value.trim(),notes:$('#notesInput').value.trim(),total:(updatePrice(),form.total)};}
-  function renderSummary(){const d=summaryData();$('#bookingSummary').innerHTML=`<div class="summary-row"><span>Nome</span><strong>${escapeHTML(d.name)}</strong></div><div class="summary-row"><span>Procedimento</span><strong>${escapeHTML(d.service)}</strong></div><div class="summary-row"><span>Aplicação/manutenção</span><strong>${escapeHTML(d.type)}</strong></div><div class="summary-row"><span>Data</span><strong>${escapeHTML(d.date)}</strong></div><div class="summary-row"><span>Horário</span><strong>${escapeHTML(d.time)}</strong></div><div class="summary-row"><span>Remoção</span><strong>${escapeHTML(d.removal)}</strong></div><div class="summary-row"><span>Sobrancelha junto</span><strong>${escapeHTML(d.browAddon)}</strong></div><div class="summary-row"><span>Primeira vez</span><strong>${escapeHTML(d.firstTime)}</strong></div><div class="summary-row"><span>Alergia/sensibilidade</span><strong>${escapeHTML(d.allergy)}${d.allergyDetails?` — ${escapeHTML(d.allergyDetails)}`:''}</strong></div><div class="summary-total summary-row"><span>Valor informado</span><strong>${d.total!=null?money(d.total):'A confirmar'}</strong></div>`;}
+  function summaryData(){const s=getService(),type=s?.category==='lashes'?checked('appointmentType'):'Não se aplica',allergy=checked('allergy');return {name:$('#nameInput').value.trim(),phone:$('#phoneInput').value.trim(),service:s?.name||'',type,date:formatDate(form.selectedDate),time:form.selectedTime,removal:removalLabel(),browAddon:s?.category==='lashes'?browAddonLabel():'Não se aplica',firstTime:checked('firstTime'),allergy,allergyDetails:$('#allergyDetails').value.trim(),notes:$('#notesInput').value.trim(),priceTable:priceTableLabel(s,form.selectedDate||TODAY_KEY),total:(updatePrice(),form.total)};}
+  function renderSummary(){const d=summaryData();$('#bookingSummary').innerHTML=`<div class="summary-row"><span>Nome</span><strong>${escapeHTML(d.name)}</strong></div><div class="summary-row"><span>Procedimento</span><strong>${escapeHTML(d.service)}</strong></div><div class="summary-row"><span>Aplicação/manutenção</span><strong>${escapeHTML(d.type)}</strong></div><div class="summary-row"><span>Data</span><strong>${escapeHTML(d.date)}</strong></div><div class="summary-row"><span>Horário</span><strong>${escapeHTML(d.time)}</strong></div><div class="summary-row"><span>Remoção</span><strong>${escapeHTML(d.removal)}</strong></div><div class="summary-row"><span>Sobrancelha junto</span><strong>${escapeHTML(d.browAddon)}</strong></div><div class="summary-row"><span>Primeira vez</span><strong>${escapeHTML(d.firstTime)}</strong></div><div class="summary-row"><span>Alergia/sensibilidade</span><strong>${escapeHTML(d.allergy)}${d.allergyDetails?` — ${escapeHTML(d.allergyDetails)}`:''}</strong></div><div class="summary-row"><span>Tabela aplicada</span><strong>${escapeHTML(d.priceTable)}</strong></div><div class="summary-total summary-row"><span>Valor informado</span><strong>${d.total!=null?money(d.total):'A confirmar'}</strong></div>`;}
   function showStep(step,shouldScroll=true){
     form.step=step;$$('.form-step').forEach(el=>el.classList.toggle('active',Number(el.dataset.step)===step));const names=['Procedimento','Agenda disponível','Seus dados','Cuidados','Conferência'];$('#stepText').textContent=`Passo ${step} de 5`;$('#stepTitle').textContent=names[step-1];$('#progressBar').style.width=`${step*20}%`;$('#prevStep').hidden=step===1;$('#nextStep').hidden=step===5;$('#whatsappSubmit').hidden=step!==5;
     if(step===2){loadSchedule({quiet:true});if(form.selectedDate){bookingCursor=monthStart(parseDateKey(form.selectedDate));}renderBookingCalendar();}
@@ -288,7 +362,7 @@
     if(s?.category==='extras'){$('#removalSelect').value=id==='remocao-aplicacao'?'removal-application':'other-professional';updatePrice();showStep(1,false);$('#agendamento').scrollIntoView({behavior:'smooth',block:'start'});return;}
     $('#serviceSelect').value=id;updateTypeVisibility();if(s?.category==='lashes')$$('input[name="appointmentType"]').forEach(r=>r.checked=false);form.selectedDate='';form.selectedTime='';showStep(1,false);$('#agendamento').scrollIntoView({behavior:'smooth',block:'start'});
   }
-  function buildWhatsAppMessage(){const d=summaryData();return ['✨ Olá Madu! Vim pelo site e gostaria de realizar um agendamento.','',`👤 Nome: ${d.name}`,d.phone?`📱 Telefone: ${d.phone}`:null,`💆 Serviço: ${d.service}`,`✨ Aplicação ou manutenção: ${d.type}`,`🗓️ Data escolhida na agenda: ${d.date}`,`⏰ Horário publicado escolhido: ${d.time}`,`🧼 Remoção: ${d.removal}`,`✧ Sobrancelha junto: ${d.browAddon}`,`🌷 É a primeira vez: ${d.firstTime}`,`🧴 Alergia ou sensibilidade: ${d.allergy}${d.allergyDetails?` — ${d.allergyDetails}`:''}`,`💰 Valor conforme seleção no site: ${d.total!=null?money(d.total):'A confirmar'}`,'',`💬 Observação: ${d.notes||'Nenhuma observação.'}`,'','Gostaria de confirmar este horário.'].filter(v=>v!==null).join('\n');}
+  function buildWhatsAppMessage(){const d=summaryData();return ['✨ Olá Madu! Vim pelo site e gostaria de realizar um agendamento.','',`👤 Nome: ${d.name}`,d.phone?`📱 Telefone: ${d.phone}`:null,`💆 Serviço: ${d.service}`,`✨ Aplicação ou manutenção: ${d.type}`,`🗓️ Data escolhida na agenda: ${d.date}`,`⏰ Horário publicado escolhido: ${d.time}`,`🧼 Remoção: ${d.removal}`,`✧ Sobrancelha junto: ${d.browAddon}`,`🌷 É a primeira vez: ${d.firstTime}`,`🧴 Alergia ou sensibilidade: ${d.allergy}${d.allergyDetails?` — ${d.allergyDetails}`:''}`,`🧾 Tabela aplicada: ${d.priceTable}`,`💰 Valor conforme seleção no site: ${d.total!=null?money(d.total):'A confirmar'}`,'',`💬 Observação: ${d.notes||'Nenhuma observação.'}`,'','Gostaria de confirmar este horário.'].filter(v=>v!==null).join('\n');}
   function buildWhatsAppURL(){const params=new URLSearchParams({phone:WHATSAPP_NUMBER,text:buildWhatsAppMessage(),type:'phone_number',app_absent:'0'});return `https://api.whatsapp.com/send/?${params.toString()}`;}
   function bookingSetup(){
     $('#serviceSelect').addEventListener('change',()=>{updateTypeVisibility();form.selectedDate='';form.selectedTime='';renderChosenSlot();});$$('input[name="appointmentType"]').forEach(r=>r.addEventListener('change',updatePrice));$('#removalSelect').addEventListener('change',updatePrice);$('#browAddonSelect').addEventListener('change',updatePrice);
@@ -301,7 +375,7 @@
   function whatsappWidget(){const btn=$('#whatsappFloat'),menu=$('#whatsappMenu');btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));menu.hidden=open;});document.addEventListener('click',e=>{if(!e.target.closest('.whatsapp-widget')){menu.hidden=true;btn.setAttribute('aria-expanded','false');}});}
 
   function init(){
-    renderServices();renderGallery();populateServiceSelect();navigation();butterflies();agendaSetup();bookingSetup();gallerySetup();whatsappWidget();$('#year').textContent=new Date().getFullYear();$('#soundButton').addEventListener('click',()=>setSound(!soundOn));revealSetup();welcome();
+    renderServices();renderDecemberPrices();decemberSnowfall();renderGallery();populateServiceSelect();navigation();butterflies();agendaSetup();bookingSetup();gallerySetup();whatsappWidget();$('#year').textContent=new Date().getFullYear();$('#soundButton').addEventListener('click',()=>setSound(!soundOn));revealSetup();welcome();
     const loader=$('#loader');const finish=()=>setTimeout(()=>loader.classList.add('done'),80);if(document.readyState==='complete')finish();else addEventListener('load',finish,{once:true});
   }
   init();
