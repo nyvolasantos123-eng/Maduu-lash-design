@@ -167,3 +167,7 @@ body{background:radial-gradient(ellipse at 85% 9%,rgba(229,45,70,.22),transparen
   .december-portrait:after{background:linear-gradient(0deg,#b41735 0%,rgba(180,22,53,.82) 15%,transparent 47%),linear-gradient(180deg,rgba(76,0,17,.35),transparent 30%)}
   .nav-cta,.btn,.december-book,.december-cta{min-height:48px}
 }
+
+/* Foto temática acima do fundo da seção, mas atrás do texto e preços. */
+.december-portrait{z-index:0}
+.december-inner{z-index:1}
