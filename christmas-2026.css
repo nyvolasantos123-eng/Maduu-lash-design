@@ -171,3 +171,26 @@ body{background:radial-gradient(ellipse at 85% 9%,rgba(229,45,70,.22),transparen
 /* Foto temática acima do fundo da seção, mas atrás do texto e preços. */
  .december-portrait{z-index:1}
 .december-inner{z-index:2}
+
+/* Retrato editorial integrado ao fundo: mantém a foto visível em todos os navegadores. */
+.december-section{
+  background-image:
+    linear-gradient(90deg,#da2a49 0%,#bb1b3b 36%,rgba(117,11,39,.26) 69%,rgba(91,8,30,.07) 100%),
+    url("assets/images/madu-natal-1086.webp"),
+    linear-gradient(145deg,#c31b3c,#600b25);
+  background-size:100% 720px,min(58vw,760px) auto,100% 100%;
+  background-position:top left,top right,center;
+  background-repeat:no-repeat;
+}
+.december-portrait{opacity:0}
+@media(max-width:640px){
+  .december-section{
+    background-image:
+      linear-gradient(180deg,rgba(89,5,24,.28) 0%,rgba(139,13,42,.12) 170px,rgba(175,23,53,.67) 335px,#b41735 510px,#751029 100%),
+      url("assets/images/madu-natal-640.webp"),
+      linear-gradient(150deg,#cb1b3c,#650b24);
+    background-size:100% 100%,100% auto,100% 100%;
+    background-position:top center,top center,center;
+    background-repeat:no-repeat;
+  }
+}
