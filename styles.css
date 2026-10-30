@@ -141,3 +141,57 @@ main{position:relative}.hero{max-width:1240px;margin:0 auto;padding:clamp(52px,8
 @media (max-width:560px){
   .availability-section{padding-top:68px}.calendar-card{padding:14px;border-radius:19px}.slot-card{padding:18px}.calendar-toolbar{grid-template-columns:40px 1fr 40px;gap:7px}.calendar-nav{width:39px;height:39px;border-radius:12px}.calendar-toolbar h3{font-size:1.02rem}.calendar-weekdays,.calendar-grid{gap:4px}.calendar-day{border-radius:9px}.calendar-day strong{font-size:.9rem}.calendar-day small{font-size:.45rem}.calendar-legend{gap:8px 10px;font-size:.62rem}.legend-box{width:11px;height:11px}.booking-calendar-card{padding:10px}.booking-slot-card{padding:14px}.map-frame,.map-frame iframe{min-height:330px}.location-info{border-radius:20px}
 }
+
+/* Preços de Dezembro • especial natalino com animação acessível e leve */
+.christmas-nav-link{color:#cbe8d8!important;font-weight:750!important}
+.christmas-nav-link:hover{color:#f5d8a2!important}
+.december-teaser{display:flex;align-items:center;gap:17px;padding:18px 22px;margin:-13px 0 42px;border:1px solid rgba(189,219,189,.26);border-radius:18px;background:linear-gradient(115deg,rgba(35,80,58,.5),rgba(82,27,43,.22));color:#f6f4e9;text-decoration:none;transition:transform .2s,border-color .2s}
+.december-teaser:hover{transform:translateY(-3px);border-color:rgba(199,228,203,.6)}
+.december-teaser-snow{flex:none;width:47px;height:47px;border:1px solid rgba(210,235,216,.25);border-radius:50%;display:grid;place-items:center;color:#e3f7eb;background:rgba(220,248,230,.09);font-size:1.6rem}
+.december-teaser-copy{display:grid;gap:4px;flex:1;min-width:0}
+.december-teaser-copy strong{font-size:1rem;line-height:1.2}
+.december-teaser-copy small{color:#c0c9c1;font-size:.78rem}
+.december-teaser-action{white-space:nowrap;color:#ebd18d;font-size:.8rem;font-weight:750}
+.december-section{position:relative;isolation:isolate;overflow:hidden;padding:clamp(74px,9vw,120px) 18px;background:radial-gradient(ellipse at 2% 0%,rgba(39,106,73,.42),transparent 43%),radial-gradient(ellipse at 96% 95%,rgba(119,37,53,.35),transparent 44%),linear-gradient(155deg,#0d1d18 0%,#0b1514 54%,#1b1217 100%);border-block:1px solid rgba(190,215,191,.16)}
+.december-section:before,.december-section:after{content:"";position:absolute;width:440px;height:440px;border:1px solid rgba(227,222,183,.07);border-radius:50%;pointer-events:none}
+.december-section:before{top:-290px;right:-115px}.december-section:after{bottom:-310px;left:-155px}
+.december-inner{position:relative;z-index:1;max-width:1200px;margin:auto}
+.december-label{display:flex;justify-content:center;gap:18px;align-items:center;color:#e6cb93;font-size:.67rem;letter-spacing:.35em;font-weight:800;margin-bottom:44px;text-align:center}
+.december-label span{font-size:1rem;color:#c5e4d0}
+.december-header{display:flex;align-items:flex-end;justify-content:space-between;gap:38px;margin-bottom:30px}
+.december-kicker{font-size:.7rem;letter-spacing:.21em;color:#b9dbcb;font-weight:750;margin:0 0 13px}
+.december-header h2{font-size:clamp(2.6rem,5.9vw,5.4rem);font-weight:800;letter-spacing:-.055em;line-height:1.04;color:#f6f3e8;margin:0 0 17px}
+.december-header h2>span:first-child{color:#e8c78b}
+.december-title-snow{font-size:.38em;vertical-align:top;margin-left:12px;color:#d8f0e7}
+.december-description{max-width:660px;font-size:clamp(.9rem,1.4vw,1.06rem);line-height:1.75;color:#bdc9c1;margin:0}
+.december-date-badge{flex:0 0 164px;display:grid;justify-items:center;gap:6px;padding:25px 13px;border-radius:22px;border:1px solid rgba(233,199,135,.32);background:linear-gradient(150deg,rgba(225,191,128,.13),rgba(104,38,47,.16));box-shadow:0 18px 50px rgba(0,0,0,.12);text-align:center}
+.december-date-badge span{font-size:.58rem;letter-spacing:.16em;color:#d6d2bf}
+.december-date-badge strong{font-size:1.7rem;color:#f2d6a4;letter-spacing:-.03em}
+.december-date-badge small{color:#c0d3c4;font-size:.8rem}
+.december-notice{display:flex;align-items:center;gap:14px;padding:16px 19px;margin-bottom:23px;border:1px solid rgba(200,231,210,.21);border-radius:15px;background:rgba(227,243,232,.065)}
+.december-notice p{color:#d1ddd5;font-size:.84rem;line-height:1.6;margin:0}
+.december-notice-icon{color:#ebd4a8;font-size:1.5rem}
+.december-prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.december-price-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:25px;border-radius:22px;border:1px solid rgba(206,231,215,.18);background:linear-gradient(142deg,rgba(236,249,236,.085),rgba(4,18,14,.52));box-shadow:0 20px 42px rgba(0,0,0,.11);transition:border-color .2s,transform .2s}
+.december-price-card:hover{border-color:rgba(236,210,159,.55);transform:translateY(-3px)}
+.december-card-top{display:flex;align-items:center;justify-content:space-between}
+.december-card-icon{color:#d5e9de;font-size:1.4rem}
+.december-card-code{font-size:.6rem;font-weight:800;letter-spacing:.16em;color:#a2c8b1}
+.december-price-card h3{font-size:clamp(1.1rem,1.7vw,1.45rem);font-weight:750;color:#fff8e9;letter-spacing:-.025em;margin:16px 0 22px}
+.december-card-prices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+.december-card-prices>div{padding:12px;border-radius:13px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.075);min-width:0}
+.december-card-prices small{display:block;color:#afc6b7;font-size:.69rem;margin-bottom:6px}
+.december-card-prices strong{color:#f7ddb0;font-weight:800;font-size:clamp(.99rem,1.6vw,1.33rem);font-variant-numeric:tabular-nums;white-space:nowrap}
+.december-book{display:flex;justify-content:space-between;align-items:center;border:0;border-top:1px solid rgba(255,255,255,.1);background:transparent;color:#b6e5c6;font-weight:750;font-size:.8rem;text-align:left;cursor:pointer;padding:18px 0 0;margin-top:19px;width:100%}
+.december-book:hover{color:#fff3d5}
+.december-footer{display:flex;align-items:center;justify-content:space-between;gap:26px;margin-top:27px}
+.december-footer p{color:#aebfb4;max-width:670px;font-size:.78rem;line-height:1.6;margin:0}
+.december-cta{flex:none;display:inline-flex;gap:19px;align-items:center;padding:15px 21px;background:#e7ca96;color:#14201a;border-radius:13px;text-decoration:none;font-weight:800;font-size:.82rem}
+.december-cta:hover{background:#f5deb4}
+.december-snow{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;user-select:none}
+.december-flake{position:absolute;left:var(--left);top:-7%;font-size:var(--size);line-height:1;color:#e5f4ef;opacity:0;filter:drop-shadow(0 0 3px rgba(223,243,232,.24));animation:december-snowfall var(--fall) linear var(--delay) infinite}
+@keyframes december-snowfall{0%{top:-7%;transform:translateX(0) rotate(0deg);opacity:0}10%{opacity:.62}88%{opacity:.48}100%{top:107%;transform:translateX(var(--drift)) rotate(250deg);opacity:0}}
+.price-validity-note{font-size:.73rem;line-height:1.55;color:#b9c8bf;margin:9px 2px 0}
+@media(max-width:960px){.december-prices{grid-template-columns:repeat(2,minmax(0,1fr))}.december-header{align-items:center}}
+@media(max-width:640px){.december-section{padding:70px 16px}.december-label{margin-bottom:29px;letter-spacing:.2em}.december-header{display:block}.december-header h2{font-size:clamp(2.35rem,10vw,3.6rem)}.december-date-badge{display:flex;align-items:center;justify-content:center;width:100%;gap:12px;margin-top:24px;padding:12px}.december-date-badge strong{font-size:1.15rem}.december-description{font-size:.89rem}.december-prices{grid-template-columns:1fr;gap:12px}.december-price-card{padding:21px}.december-price-card h3{margin:11px 0 18px}.december-card-prices strong{font-size:1.18rem}.december-footer{display:grid;gap:20px}.december-cta{justify-content:center}.december-teaser{gap:11px;padding:13px;flex-wrap:wrap}.december-teaser-copy{flex-basis:calc(100% - 65px)}.december-teaser-action{margin-left:62px}.december-notice{padding:13px}.december-notice p{font-size:.77rem}}
+@media(prefers-reduced-motion:reduce){.december-flake{display:none;animation:none}.december-price-card,.december-teaser{transition:none}}
